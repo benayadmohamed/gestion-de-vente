@@ -3,6 +3,6 @@ spring:
     config:
       server:
         git:
-          uri: C:\Users\simo-\workspace\spring\cloud\gestion-de-vente\repository-configs
+          uri: C:\Users\simo-\workspace\spring\cloud\gestion-de-vente\rrepository-configs
 server:
   port: 8888
