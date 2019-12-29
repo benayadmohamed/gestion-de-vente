@@ -1,11 +1,11 @@
 import {combineReducers} from "redux";
-import categoryApp from "../category/store/reducers";
+import customerApp from "../customer/store/reducers";
 import productApp from "../product/store/reducers";
 import {reducer as formReducer} from 'redux-form'
 
 const rootReducer = combineReducers(
     {
-        category: categoryApp,
+        customer: customerApp,
         product: productApp,
         form: formReducer
     }

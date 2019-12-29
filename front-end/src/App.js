@@ -8,8 +8,8 @@ import Home from "./app/others/home";
 import {createBrowserHistory} from "history"
 import {createStore} from "redux";
 import rootReducer from "./app/store/root-reducers";
-import {REQUEST_ADD_CAT} from "./app/category/store/actions";
-import Category from "./app/category/model/category";
+import {REQUEST_ADD_CAT} from "./app/customer/store/actions";
+import Customer from "./app/customer/model/customer";
 import rootStore from "./app/store/root-store";
 
 const history = createBrowserHistory()
@@ -18,7 +18,7 @@ console.log(rootStore.getState())
 
 // rootStore.dispatch({
 //     type: REQUEST_ADD_CAT,
-//     category: new Category(10, 'salaaaaaaam')
+//     customer: new Customer(10, 'salaaaaaaam')
 // });
 //
 // console.log(rootStore.getState());

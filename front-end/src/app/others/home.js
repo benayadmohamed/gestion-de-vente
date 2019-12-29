@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {Route, Router} from "react-router";
 import {createBrowserHistory} from "history"
-import Form from "../category/ui/form/category-form";
-import List from "../category/ui/list/list";
+import Form from "../customer/ui/form/customer-form";
+import List from "../customer/ui/list/list";
 import {BrowserRouter} from "react-router-dom";
-import CategoryContainer from "../category/ui/layout/container";
+import CustomerContainer from "../customer/ui/layout/container";
 import Header from "./Header";
 import ProductContainer from "../product/ui/layout/container";
 
@@ -17,7 +17,7 @@ class Home extends Component {
                     basename="/home">
                     <Header/>
                     <div className="container">
-                        <Route path="/category/" component={CategoryContainer}/>
+                        <Route path="/customer/" component={CustomerContainer}/>
                         <Route path="/product/" component={ProductContainer}/>
                     </div>
                 </BrowserRouter>

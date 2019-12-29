@@ -22,6 +22,19 @@ hystrix:
 spring:
   cloud:
     gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedHeaders:
+              - Authorization
+              - content-type
+            allowedMethods:
+              - GET
+              - POST
+              - DELETE
+              - PUT
+              - PUT
       routes:
         - id: customer-service-id
           uri: lb://customer-service

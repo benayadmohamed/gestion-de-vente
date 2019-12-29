@@ -1,14 +1,14 @@
-import {addCatSuccess, receiveCategories, requestAddCat, requestCategories} from "./actions";
+import {addCatSuccess, receiveCustomers, requestAddCat, requestCustomers} from "./actions";
 import axios from 'axios';
 
-export function addCatService(category) {
+export function addCatService(customer) {
     return dispatch => {
         dispatch(requestAddCat())
-        axios.post('http://localhost:8080/api/categories', category)
+        axios.post('http://localhost:8080/customer-service/customers', customer)
             .then(res => {
-                const categorie = res.data;
-                alert(JSON.stringify(categorie));
-                dispatch(addCatSuccess(categorie))
+                const customer = res.data;
+                alert(JSON.stringify(customer));
+                dispatch(addCatSuccess(customer))
             }).catch(err => {
             console.log("HHHHHHHHHHHHHHHHHh")
         });
@@ -18,11 +18,11 @@ export function addCatService(category) {
 
 function fetchPosts() {
     return dispatch => {
-        dispatch(requestCategories())
-        axios.get('http://localhost:8080/api/categories?size=1000')
+        dispatch(requestCustomers())
+        axios.get('http://localhost:8080/customer-service/customers?projection=fullCustomer')
             .then(res => {
-                const categories = res.data._embedded.categories;
-                dispatch(receiveCategories(categories))
+                const customers = res.data._embedded.customers;
+                dispatch(receiveCustomers(customers))
             }).catch(err => {
             console.log("HHHHHHHHHHHHHHHHHh")
         });
@@ -30,8 +30,8 @@ function fetchPosts() {
 }
 
 function shouldFetchPosts(state) {
-    const categories = state.categories
-    if (!categories) {
+    const customers = state.customers
+    if (!customers) {
         return true
     } else if (state.isFetching) {
         return false

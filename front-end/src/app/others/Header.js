@@ -16,7 +16,7 @@ class Header extends Component {
                     <ul className="navbar-nav mr-auto">
 
                         <li className="nav-item">
-                            <NavLink to="/category/" activeClassName="selected" className="nav-link">Category</NavLink>
+                            <NavLink to="/customer/" activeClassName="selected" className="nav-link">Customer</NavLink>
                         </li>
                         <li className="nav-item">
                             <NavLink to="/product/" activeClassName="selected" className="nav-link">Product</NavLink>

@@ -8,6 +8,7 @@ class Menu extends Component {
                 <NavLink to="/list" activeClassName="active" className="list-group-item ">list</NavLink>
                 <NavLink to="/form" activeClassName="active" className="list-group-item ">add</NavLink>
             </div>
+            
         );
     }
 }

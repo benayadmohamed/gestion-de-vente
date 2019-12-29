@@ -2,14 +2,14 @@ import React, {Component} from 'react';
 import {BrowserRouter, NavLink, Redirect} from "react-router-dom";
 import {Route} from "react-router";
 import ConnectedList from "../list/list";
-import Form from "../form/category-form";
+import Form from "../form/customer-form";
 import Menu from "./menu";
 
-class CategoryContainer extends Component {
+class CustomerContainer extends Component {
     render() {
         return (
             <div>
-                <BrowserRouter basename="/home/category">
+                <BrowserRouter basename="/home/customer">
 
                     <div className="row">
 
@@ -36,4 +36,4 @@ class CategoryContainer extends Component {
     }
 }
 
-export default CategoryContainer;
+export default CustomerContainer;

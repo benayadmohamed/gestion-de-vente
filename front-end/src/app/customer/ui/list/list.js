@@ -1,19 +1,19 @@
-import React, {Component} from 'react';
-import {fetchPostsIfNeeded} from "../../store/services";
-import {applyMiddleware as dispatch} from "redux";
+import React, { Component } from 'react';
+import { fetchPostsIfNeeded } from "../../store/services";
+import { applyMiddleware as dispatch } from "redux";
 import rootStore from "../../../store/root-store";
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 
 class List extends Component {
 
     componentDidMount() {
         rootStore.dispatch(fetchPostsIfNeeded());
-        console.log("jaaaaaaaaaaaaaaaaaaaaaaaaaaa", this.props.categories, this.state);
+        console.log("jaaaaaaaaaaaaaaaaaaaaaaaaaaa", this.props.customers, this.state);
     }
 
     render() {
-        const categories = this.props.categories.map(value => {
-            return <tr id={value.id}>
+        const customers = this.props.customers.map(value => {
+            return <tr key={value.id}>
                 <td>{value.id}</td>
                 <td>{value.name}</td>
             </tr>
@@ -23,13 +23,13 @@ class List extends Component {
             <div>
                 <table>
                     <thead>
-                    <tr>
-                        <td>ID</td>
-                        <td>Name</td>
-                    </tr>
+                        <tr>
+                            <td>ID</td>
+                            <td>Name</td>
+                        </tr>
                     </thead>
                     <tbody>
-                    {categories}
+                        {customers}
                     </tbody>
                 </table>
             </div>
@@ -39,7 +39,7 @@ class List extends Component {
 
 const mapStateToProps = state => {
     return {
-        categories: state.category.categories
+        customers: state.customer.customers
     }
 }
 
