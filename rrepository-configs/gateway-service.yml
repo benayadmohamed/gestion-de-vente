@@ -1,0 +1,51 @@
+server:
+  port: 8080
+eureka:
+  client:
+    registry-fetch-interval-seconds: 5
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+# bligatoire pour activer le hystrixe
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
+#si le chargement de reousources depasse 1000 ms le falback sera retourner
+hystrix:
+  command:
+    fallbackcmdnomPersonaliser:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1000
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: customer-service-id
+          uri: lb://customer-service
+          predicates:
+            - Path=/customer-service/**
+          filters:
+            - RewritePath=/customer-service(?<segment>/?.*), $\{segment}
+            - name: Hystrix
+              args:
+                name: fallbackcmdnomPersonaliser
+                fallbackUri: forward:/restCountriesFallback
+        - id: inventory-service-id
+          uri: lb://inventory-service
+          predicates:
+            - Path=/inventory-service/**
+          filters:
+            - RewritePath=/inventory-service(?<segment>/?.*), $\{segment}
+            - name: Hystrix
+              args:
+                name: fallbackcmd
+                fallbackUri: forward:/muslimsalatFallback
+        - id: billing-service-id
+          uri: lb://billing-service
+          predicates:
+            - Path=/billing-service/**
+          filters:
+            - RewritePath=/billing-service(?<segment>/?.*), $\{segment}
