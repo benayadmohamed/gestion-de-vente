@@ -4,6 +4,6 @@ springbootwebfluxjjwt:
     expiration: 600000
   password:
     encoder:
-      secret: mysecret
+      secret: mysecreet
       iteration: 33
       keylength: 256
