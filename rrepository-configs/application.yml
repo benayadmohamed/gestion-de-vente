@@ -1,0 +1,9 @@
+springbootwebfluxjjwt:
+  jjwt:
+    secret: ThisIsSecretForJWTHS512SignatureAlgorithmThatMUSTHave512bitsKeySize
+    expiration: 600000
+  password:
+    encoder:
+      secret: mysecret
+      iteration: 33
+      keylength: 256

@@ -26,9 +26,10 @@ spring:
         corsConfigurations:
           '[/**]':
             allowedOrigins: "*"
-            allowedHeaders:
-              - Authorization
-              - content-type
+            allowedHeaders: "*"
+#              - Authorization
+#              - content-type
+#              - Content-type
             allowedMethods:
               - GET
               - POST
@@ -62,3 +63,9 @@ spring:
             - Path=/billing-service/**
           filters:
             - RewritePath=/billing-service(?<segment>/?.*), $\{segment}
+        - id: security-service-id
+          uri: lb://security-service
+          predicates:
+            - Path=/security-service/**
+          filters:
+            - RewritePath=/security-service(?<segment>/?.*), $\{segment}
