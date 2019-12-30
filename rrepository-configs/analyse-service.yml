@@ -8,4 +8,4 @@ eureka:
 spring:
   data:
     mongodb:
-      uri: mongodb://localhost:27017/Catal
+      uri: mongodb://localhost:27017/examen
