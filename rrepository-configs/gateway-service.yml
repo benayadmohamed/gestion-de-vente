@@ -69,3 +69,9 @@ spring:
             - Path=/security-service/**
           filters:
             - RewritePath=/security-service(?<segment>/?.*), $\{segment}
+        - id: analyse-service-id
+          uri: lb://analyse-service
+          predicates:
+            - Path=/analyse-service/**
+          filters:
+            - RewritePath=/analyse-service(?<segment>/?.*), $\{segment}

@@ -1,0 +1,11 @@
+server:
+  port: 8085
+eureka:
+  client:
+    registry-fetch-interval-seconds: 5
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/Catal
